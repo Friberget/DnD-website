@@ -10,6 +10,8 @@ function addCharacter() {
 
   const character = {
     name: name,
+    race: "Dwarf",
+    alignment: "Chaotic Neutral",
   };
 
   characters.push(character);
@@ -19,17 +21,29 @@ function addCharacter() {
 }
 
 function listCharacters() {
-  const characterListWrapper = document.getElementById("characterlist");
-  characterListWrapper.innerHTML = "";
+  const characterListDiv = document.getElementById("characterlist");
+  characterListDiv.innerHTML = "";
 
   characters.forEach((char) => {
-    const characterWrapper = document.createElement("div");
-    const nameElement = document.createElement("h3");
-    nameElement.innerText = char.name;
+    const characterDiv = document.createElement("div");
 
-    characterWrapper.appendChild(nameElement);
-    characterListWrapper.appendChild(characterWrapper);
+    const nameElement = createTextElement("h3", char.name);
+    characterDiv.appendChild(nameElement);
+
+    const raceElement = createTextElement("span", char.race);
+    characterDiv.appendChild(raceElement);
+
+    const alignmentElement = createTextElement("span", char.alignment);
+    characterDiv.appendChild(alignmentElement);
+
+    characterListDiv.appendChild(characterDiv);
   });
+}
+
+function createTextElement(htmlElementType, text) {
+  const newElement = document.createElement(htmlElementType);
+  newElement.innerText = text;
+  return newElement;
 }
 
 document
