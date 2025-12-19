@@ -1,0 +1,36 @@
+#ui {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1600px;
+  height: 900px;
+  z-index: 1;
+}
+
+.ui-border {
+  position: absolute;
+  top: -9px;
+  left: -9px;
+  right: -9px;
+  bottom: -9px;
+  pointer-events: none;
+  border-radius: 8px;
+  z-index: 10;
+
+  /* Multiple backgrounds for top/bottom/left/right */
+  background: url("../assets/images/borders/border_horizontal.png") top repeat-x,
+    url("../assets/images/borders/border_horizontal.png") bottom repeat-x,
+    url("../assets/images/borders/border_vertical.png") left repeat-y,
+    url("../assets/images/borders/border_vertical.png") right repeat-y;
+  background-size: auto 10px, auto 10px, 10px auto, 10px auto;
+}
+
+.ui-background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: url("../assets/images/backgrounds/forgotten_forest_bg.png")
+    center/cover no-repeat;
+  z-index: -1;
+}
