@@ -14,16 +14,21 @@
     <script src="../js/game/main.js" type="module"></script>
   </head>
   <body>
-    <section id="ui">
-      <!-- Border of the game UI -->
-      <div class="ui-border"></div>
+    <main id="game-container">
+      <section id="ui">
+        <!-- Border of the game UI -->
+        <div class="ui-border"></div>
 
-      <!-- Hero stats -->
-      <div id="hero">
-        <div class="hero-top-bar">
-          <h2 id="hero-name" class="hero-name"></h2>
+        <!-- Inner content of the game UI. Here we render the game objects/menus etc -->
+        <div class="ui-inner">
+          <!-- Hero stats -->
+          <div id="hero">
+            <div class="hero-top-bar">
+              <h2 id="hero-name" class="hero-name"></h2>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   </body>
 </html>

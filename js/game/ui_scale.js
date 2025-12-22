@@ -3,7 +3,7 @@ const wrapper = document.getElementById("ui");
 
 const BASE_WIDTH = 1600;
 const BASE_HEIGHT = 900;
-const PADDING = 40; // Padding runtomkring spelet
+const PADDING = 100; // Padding runtomkring spelet
 
 export function resizeGame() {
   const availableWidth = window.innerWidth - PADDING * 2;
