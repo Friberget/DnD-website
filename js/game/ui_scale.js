@@ -1,9 +1,9 @@
 // Hämtar referensen till elementet.ui-elementet
 const wrapper = document.getElementById("ui");
 
-const BASE_WIDTH = 1600;
-const BASE_HEIGHT = 900;
-const PADDING = 100; // Padding runtomkring spelet
+const BASE_WIDTH = 1066;
+const BASE_HEIGHT = 600;
+const PADDING = 200; // Padding runtomkring spelet
 
 export function resizeGame() {
   const availableWidth = window.innerWidth - PADDING * 2;
