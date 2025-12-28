@@ -16,10 +16,26 @@
   transform: translate(-50%, -50%);
   width: 1066px;
   height: 600px;
-  z-index: 1;
-  background-color: rgb(255, 230, 204);
   box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.5);
 
+  .ui-border {
+    position: absolute;
+    top: -9px;
+    left: -9px;
+    right: -9px;
+    bottom: -9px;
+    pointer-events: none;
+    border-radius: 8px;
+    z-index: 10;
+
+    /* Multiple backgrounds for top/bottom/left/right */
+    background: url("../assets/images/borders/border_horizontal.png") top
+        repeat-x,
+      url("../assets/images/borders/border_horizontal.png") bottom repeat-x,
+      url("../assets/images/borders/border_vertical.png") left repeat-y,
+      url("../assets/images/borders/border_vertical.png") right repeat-y;
+    background-size: auto 10px, auto 10px, 10px auto, 10px auto;
+  }
   .ui-inner {
     position: relative;
     width: 100%;
@@ -29,22 +45,4 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
-}
-
-.ui-border {
-  position: absolute;
-  top: -9px;
-  left: -9px;
-  right: -9px;
-  bottom: -9px;
-  pointer-events: none;
-  border-radius: 8px;
-  z-index: 10;
-
-  /* Multiple backgrounds for top/bottom/left/right */
-  background: url("../assets/images/borders/border_horizontal.png") top repeat-x,
-    url("../assets/images/borders/border_horizontal.png") bottom repeat-x,
-    url("../assets/images/borders/border_vertical.png") left repeat-y,
-    url("../assets/images/borders/border_vertical.png") right repeat-y;
-  background-size: auto 10px, auto 10px, 10px auto, 10px auto;
 }

@@ -1,6 +1,4 @@
-import { initiate_ui_scale } from "./ui_scale.js";
-
-export const levels = [
+const levels = [
   {
     level: 1,
     experienceRequired: 0,
@@ -19,33 +17,41 @@ export const levels = [
   },
 ];
 
-export const mainCharacter = {
+const hero = {
   name: "Undrados",
   race: "Dwarf",
   class: "Warrior",
-  level: 1,
-  currentExperience: 0,
-  attack: [15, 19],
+  level: 2,
+  currentExperience: 120,
+  attack: {
+    min: 8,
+    max: 11,
+  },
   armor: 48,
   maxHealth: 120,
   currentHealth: 120,
   gold: 5,
 };
 
-export function populateHeroStats() {
-  // Leta bland levels arrayen efter objektet där level är mainCharacter.level + 1
-  const nextLevel = null;
+function populateHeroStats() {
+  // Leta bland levels arrayen efter objektet där level är hero.level + 1
+  let experienceNeededForNextLevel = null;
+  levels.forEach((objectInArray) => {
+    if (objectInArray.level == hero.level + 1) {
+      experienceNeededForNextLevel = objectInArray.experienceRequired;
+    }
+  });
   // Beräkna erfarenhet som behövs för nästa level
-  const experienceNeededForNextLevel = null;
 
   // Populera UI med alla hero-stats
-  document.getElementById("hero-name").innerText = mainCharacter.name;
-
+  document.getElementById("hero-name").innerText = hero.name;
+  document.getElementById(
+    "hero-xp"
+  ).innerText = `${hero.currentExperience} / ${experienceNeededForNextLevel}`;
   // Fortsätt att populera övriga stats...
 }
 
 function main() {
-  initiate_ui_scale();
   populateHeroStats();
 }
 
