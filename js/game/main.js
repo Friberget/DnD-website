@@ -1,19 +1,19 @@
 const levels = [
   {
     level: 1,
-    experienceRequired: 0,
+    xpRequired: 0,
   },
   {
     level: 2,
-    experienceRequired: 300,
+    xpRequired: 150,
   },
   {
     level: 3,
-    experienceRequired: 450,
+    xpRequired: 220,
   },
   {
     level: 4,
-    experienceRequired: 600,
+    xpRequired: 310,
   },
 ];
 
@@ -21,8 +21,8 @@ const hero = {
   name: "Undrados",
   race: "Dwarf",
   class: "Warrior",
-  level: 2,
-  currentExperience: 120,
+  level: 3,
+  currentXpOnLevel: 30,
   attack: {
     min: 8,
     max: 11,
@@ -34,20 +34,17 @@ const hero = {
 };
 
 function populateHeroStats() {
-  // Leta bland levels arrayen efter objektet där level är hero.level + 1
-  let experienceNeededForNextLevel = null;
-  levels.forEach((objectInArray) => {
-    if (objectInArray.level == hero.level + 1) {
-      experienceNeededForNextLevel = objectInArray.experienceRequired;
-    }
-  });
-  // Beräkna erfarenhet som behövs för nästa level
+  // Hitta nuvarande level-objektet i levels arrayen
+  const currentLevelObject = levels.find((level) => hero.level == level.level);
+  // Hitta nästa level-objektet i levels arrayen
+  const nextLevelObject = levels.find((level) => hero.level + 1 == level.level);
 
   // Populera UI med alla hero-stats
   document.getElementById("hero-name").innerText = hero.name;
+  document.getElementById("hero-level").innerText = currentLevelObject.level;
   document.getElementById(
     "hero-xp"
-  ).innerText = `${hero.currentExperience} / ${experienceNeededForNextLevel}`;
+  ).innerText = `${hero.currentXpOnLevel} / ${nextLevelObject.xpRequired}`;
   // Fortsätt att populera övriga stats...
 }
 
