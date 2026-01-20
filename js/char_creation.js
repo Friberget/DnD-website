@@ -27,13 +27,15 @@ function listCharacters() {
   characters.forEach((char) => {
     const characterDiv = document.createElement("div");
 
+    characterDiv.classList.add("character");
+
     const nameElement = createTextElement("h3", char.name);
     characterDiv.appendChild(nameElement);
 
-    const raceElement = createTextElement("span", char.race);
+    const raceElement = createTextElement("p", char.race);
     characterDiv.appendChild(raceElement);
 
-    const alignmentElement = createTextElement("span", char.alignment);
+    const alignmentElement = createTextElement("p", char.alignment);
     characterDiv.appendChild(alignmentElement);
 
     characterListDiv.appendChild(characterDiv);
